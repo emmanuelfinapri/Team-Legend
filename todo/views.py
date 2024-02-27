@@ -66,12 +66,6 @@ class CustomLoginView(LoginView):
         return reverse_lazy('task')
 
 
-class RegisterUser(UserCreationForm):
-
-    def check_user(self):
-        pass
-
-
 class RegisterPage(FormView):
     template_name = 'todo/register.html'
     form_class = UserCreationForm
@@ -79,47 +73,19 @@ class RegisterPage(FormView):
     success_url = reverse_lazy('task')
 
     def form_valid(self, form):
-        print("CHECKING IF FORM IS VALID")
-        # Check if the form is valid
+        user = form.save()
+        if user is not None:
+            login(self.request, user)
+        return super(RegisterPage, self).form_valid(form)
 
-        print("FORM", form)
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('task')
+        return super(RegisterPage, self).get(*args, *kwargs)
 
-        if form.is_valid():
-            user = form.save()
-            if user is not None:
-                login(self.request, user)
-            return super(RegisterPage, self).form_valid(form)
-        else:
-            print("FORM IS NOT VALID.................")
+    def post(self, *args, **kwargs):
+        form = self.get_form(self.form_class)
+        if not form.is_valid():
+            return self.form_invalid(form)
 
-            response = {
-                "form": {
-                    "error_messages": "Form is invalid"
-                }
-            }
-
-        return render(request=self.request, template_name=self.template_name, context=response)
-
-
-def get(self, *args, **kwargs):
-    if self.request.user.is_authenticated:
-        return redirect('task')
-    return super(RegisterPage, self).get(*args, *kwargs)
-#
-# def post(self, *args, **kwargs):
-#     print("This POST is getting csalled on form submission")
-#     # print("ARGS",args)
-#     # print("KWARGS",kwargs)
-#
-#     form = self.get_form()
-#
-#     print("FORM",form)
-#     if form.password1 != form.password2:
-#         response = {
-#             "form": {
-#                 "error_messages": "Form is invalid"
-#             }
-#         }
-#         return render(request=self.request, template_name=self.template_name, context=response)
-#
-#     return self.form_valid(form)
+        return super(RegisterPage, self).post(*args, *kwargs)
