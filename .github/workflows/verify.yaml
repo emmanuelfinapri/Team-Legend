@@ -16,9 +16,8 @@ jobs:
   run-test:
     runs-on: ubuntu-latest
     steps:
-      - name: List files
-        run: ls -l
+      - uses: actions/checkout@v4
       - name: Build docker images
-        run: docker build -t test --target test
+        run: docker build -t test --target test .
       - name: Run test
         run: docker run test
