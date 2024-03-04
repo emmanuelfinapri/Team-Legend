@@ -9,7 +9,7 @@ Tamunowari George: 101201460
 
 # Description of application:
 Our project is an application-based to-do list—a tool designed for task management and organisation. It functions as a list of tasks or activities that individuals need to accomplish, typically within a specific period.
-This web-based to-do list application aims to help users organise tasks and manage their daily activities efficiently. 
+This web-based to-do list application aims to help users organise tasks and manage their daily activities efficiently.
 
 
 Sign in sign out:
