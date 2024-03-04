@@ -17,6 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build docker images
-        run: docker build . -t test --target test
+        run: docker build -t test --target test < .devcontainer/Dockerfile
       - name: Run test
         run: docker run test
