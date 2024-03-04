@@ -42,7 +42,12 @@ The goal of this sprint was to create a working application with sum limited fun
 # Feedback questions:
 - really great sprint goal
 Automated test for our project | run automatically in github | Testing small parts of application around 2
-Hello
+
+
+## APPLICATION SCREENSHOTS
+![Alt text](/docs/assets/UserRegister.png?raw=true "Optional Title")
+
+
 # RUNNING THE APPLICATION
 ````shell
 python mange.py runserver
