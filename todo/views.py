@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -71,6 +72,8 @@ class RegisterUser(UserCreationForm):
     def check_user(self):
         pass
 
+class UserInfoView(LoginRequiredMixin, TemplateView):
+    template_name = 'todo/user-info.html'  # Replace 'user_info.html' with the actual template name for the user info page
 
 class RegisterPage(FormView):
     template_name = 'todo/register.html'
