@@ -2,8 +2,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.views.generic import TemplateView
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, FormView, UpdateView
@@ -89,3 +89,7 @@ class RegisterPage(FormView):
             return self.form_invalid(form)
 
         return super(RegisterPage, self).post(*args, *kwargs)
+
+
+class UserInfoView(LoginRequiredMixin, TemplateView):
+    template_name = 'todo/user-info.html'  # Replace 'user_info.html' with the actual template name for the user info page

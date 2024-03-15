@@ -8,28 +8,49 @@
     <link href="https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap"
           rel="stylesheet">
 </head>
+{% load static %}
 <style>
     body {
-    background: linear-gradient(135deg, #283048, #859398);
-    font-family: 'Roboto', sans-serif;
-    padding-top: 50px;
-}
+        background-image: url('{% static "Background-Image.png" %}');
+        background-size: 40%; /* Optional: Adjusts the size of the background image to cover the entire container */
+        font-family: 'Roboto', sans-serif;
+        padding-top: 50px;
+    }
+    .logo {
+        width: 100px; /* Adjust the width as needed */
+        height: auto; /* Maintain the aspect ratio */
+        position: absolute; /* Set the position absolute to allow precise positioning */
+        top: 20px; /* Adjust the top position as needed */
+        left: 600px; /* Adjust the left position as needed */
+        transform: scale(1.5);
+    }
+
+    .logo img {
+        width: 100px; /* Adjust the width as needed */
+        height: auto; /* Maintain the aspect ratio */
+    }
+
+
+
 
 .container {
-    max-width: 600px;
+    max-width: 900px;
     margin: auto;
-    background-color: #f4f4f4;
+    background-color: rgba(244, 244, 244, 0.7); /* Adjust the alpha value (0.7) to change transparency */
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 50px;
+    height:600px;
 }
+
 .header-bar {
         display: flex;
         justify-content: space-between;
         color: #fff;
         padding: 10px;
         border-radius: 5px 5px 0 0;
-        background: linear-gradient(127deg, #283048 30%, #859398 40%, #008cff 50%);
+        /* background: linear-gradient(127deg, #283048 30%, #859398 40%, #008cff 50%); */
+        background:rgba(0, 1, 8, 0.7);
     }
     h1,
     h2,
@@ -131,7 +152,6 @@
         }
         .card-body {
             padding: 20px;
-
         }
 
     .logout {
@@ -141,12 +161,48 @@
         color: white;
     }
 
+    .info-button {
+        position: absolute;
+        top: 70px; /* Adjust this value to position the button vertically */
+        right: 200px; /* Adjust this value to position the button horizontally */
+        background-color: #007bff; /* Example background color */
+        color: #fff; /* Example text color */
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    /* Additional styles for button hover effect */
+    .info-button:hover {
+        background-color: #0056b3; /* Example hover background color */
+    }
+
+    .big-button {
+        background-color: #0c1a29; /* Background color */
+        color: #fff; /* Text color */
+        padding: 10px 20px; /* Padding */
+        font-size: 16px; /* Font size */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Border radius */
+        cursor: pointer; /* Cursor style */
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .big-button:hover {
+        background-color: #c6cacf; /* Background color on hover */
+    }
+
 
 </style>
 <body>
 <div class="container">
     {% block content %}
     {% endblock content %}
+    <div class="logo">
+        <img src="{% static 'Logo new.png' %}" alt="Logo">
+    </div>
 </div>
 </body>
 </html>
