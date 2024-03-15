@@ -19,17 +19,30 @@
         {{ form.password2 }}
         <br><br>
 
+<<<<<<< HEAD
         {% if form.errors %}
             <div class="alert alert-danger">
                 {{ form.errors }}
             </div>
+=======
+        {% if form.error_messages %}
+            <p>{{ form.error_messages }}</p>
+
+>>>>>>> f065b29 (Add Background Image)
         {% endif %}
 
         <input class="button" type="submit" value="Register Now"></input>
 
 
     </form>
+<<<<<<< HEAD
 
     <small><p>Have an account already? <a href="{% url 'login' %}">Login Now</a></p></small>
 </div>
 {% endblock content %}
+=======
+    
+    <small><p>Have an account already? <a href="{% url 'login' %}">Login Now</a></p></small>
+</div>
+{% endblock content %}
+>>>>>>> f065b29 (Add Background Image)

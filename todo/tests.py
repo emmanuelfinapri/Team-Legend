@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.contrib.auth import authenticate, get_user_model
 from django.test import TestCase
 
@@ -25,3 +26,8 @@ class SigninTest(TestCase):
     def test_wrong_pssword(self):
         user = authenticate(username="test", password="wrong")
         self.assertFalse(user is not None and user.is_authenticated)
+=======
+from django.test import TestCase
+
+# Create your tests here.
+>>>>>>> f065b29 (Add Background Image)
