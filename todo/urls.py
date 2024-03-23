@@ -5,6 +5,7 @@ from django.urls import path
 from .views import (
     CustomLoginView,
     RegisterPage,
+    ResetPasswordView,
     TaskCreate,
     TaskDelete,
     TaskDetail,
@@ -24,9 +25,7 @@ urlpatterns = [
     path("task-delete/<int:pk>/", TaskDelete.as_view(), name="tasks-delete"),
     path("user-info/", UserInfoView.as_view(), name="user-info"),
     # Password reset URLs
-    path(
-        "reset-password/", auth_views.PasswordResetView.as_view(), name="password_reset"
-    ),
+    path("reset-password/", ResetPasswordView.as_view(), name="password_reset"),
     path(
         "reset-password/done/",
         auth_views.PasswordResetDoneView.as_view(),
