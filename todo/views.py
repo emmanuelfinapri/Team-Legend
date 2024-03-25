@@ -1,10 +1,10 @@
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.contrib.auth.views import LoginView, PasswordResetView
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, FormView, UpdateView
 from django.views.generic.list import ListView
@@ -89,3 +89,17 @@ class RegisterPage(FormView):
             return self.form_invalid(form)
 
         return super(RegisterPage, self).post(*args, *kwargs)
+
+
+class UserInfoView(LoginRequiredMixin, TemplateView):
+    template_name = "todo/user-info.html"  # Replace 'user_info.html' with the actual template name for the user info page
+
+
+class ResetPasswordView(PasswordResetView):
+    template_name = (
+        "todo/reset-password.html"  # Specify the template for the password reset form
+    )
+    email_template_name = "todo/reset_password_email.html"  # Optional: Specify the template for the email sent for password reset
+    success_url = reverse_lazy(
+        "password_reset_done"
+    )  # Specify the URL to redirect to after a password reset request is submitted
