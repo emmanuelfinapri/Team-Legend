@@ -34,9 +34,9 @@ No, our sprint is not considered done. Out of the seven different items includin
 python mange.py runserver
 ````
 ## APPLICATION SCREENSHOTS
-![Alt text](/docs/assets/New Login.png?raw=true "Optional Title")
-![Alt text](/docs/assets/Reset Password.png?raw=true "Optional Title")
-![Alt text](/docs/assets/To do list.png?raw=true "Optional Title")
-![Alt text](/docs/assets/User Info page.png?raw=true "Optional Title")
+![Alt text](/docs/assets/NewLogin.png?raw=true "Optional Title")
+![Alt text](/docs/assets/ResetPassword.png?raw=true "Optional Title")
+![Alt text](/docs/assets/ToDoList.png?raw=true "Optional Title")
+![Alt text](/docs/assets/UserInfoPage.png?raw=true "Optional Title")
 ![Alt text](/docs/assets/UserRegister.png?raw=true "Optional Title")
 ![Alt text](/docs/assets/UserLogin.png?raw=true "Optional Title")
